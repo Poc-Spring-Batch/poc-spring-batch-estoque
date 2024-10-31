@@ -1,6 +1,10 @@
 package br.com.pupposoft.poc.springbatch.estoque.gateway;
 
+import br.com.pupposoft.poc.springbatch.estoque.domain.Estoque;
+
 public interface EstoqueGateway {
-	Long obterPorProdutoId(Long produtoId);
+	Estoque obterPorProdutoId(Long produtoId);
+
+	void salvar(Estoque estoque);
 
 }

@@ -8,12 +8,16 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-public class ObterEstoqueCarrinhoUseCase {
+public class DecrementarEstoqueUseCase {
 	
 	private EstoqueGateway estoqueGateway;
 	
-	public Estoque obterPorProdutoId(Long produtoId) {
-		return estoqueGateway.obterPorProdutoId(produtoId);
+	public void alterarPorProdutoId(Long produtoId, Integer quantidade) {
+		
+		Estoque estoque = estoqueGateway.obterPorProdutoId(produtoId);
+		estoque.decrementar(quantidade);
+		
+		estoqueGateway.salvar(estoque);
 	}
 
 }
